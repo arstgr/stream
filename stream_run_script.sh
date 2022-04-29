@@ -9,6 +9,7 @@ cd $wdir
 mkdir stream-$(hostname)
 cd stream-$(hostname)
 cp ../stream .
+source ../setenv_AOCC.sh
 
 if [[ $SKU == "hbrs_v2" ]]; then
     export OMP_NUM_THREADS=32
