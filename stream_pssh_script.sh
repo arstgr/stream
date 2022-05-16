@@ -13,5 +13,5 @@ then
     pbsnodes -avS | grep free | awk -F ' ' '{print $1}' >> hosts.txt
 fi
 
-pssh -p 194 -t 0 -i -h hosts.txt "cd $wdir && ./stream_run_script.sh $wdir $SKU" >> stream_pssh.log 2>&1
+pssh -p 800 -t 0 -i -h hosts.txt "cd $wdir && ./stream_run_script.sh $wdir $SKU" >> stream_pssh.log 2>&1
 sleep 60
