@@ -28,7 +28,7 @@ sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
 export OMP_SCHEDULE=static
 export OMP_DYNAMIC=false
 export OMP_THREAD_LIMIT=256
-export OMP_NESTED=FALSE
+#export OMP_NESTED=FALSE
 export OMP_STACKSIZE=256M
 
 ./stream >> stream-$(hostname).log
