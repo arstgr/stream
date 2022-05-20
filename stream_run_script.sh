@@ -33,4 +33,4 @@ export OMP_STACKSIZE=256M
 
 ./stream >> stream-$(hostname).log
 
-echo "system: $(hostname) stream: $(grep 'Triad:' stream-$(hostname).log | awk '{print $2}') MB/s" >> ../stream-test-results.log
+#echo "system: $(hostname) stream: $(grep 'Triad:' stream-$(hostname).log | awk '{print $2}') MB/s" >> ../stream-test-results.log
