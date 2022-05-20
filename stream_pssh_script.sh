@@ -18,6 +18,6 @@ sleep 60
 
 IFS=$'\n' read -d '' -r -a names < ./hosts.txt
 for i in ${names[@]}; do
-    echo "system: $i stream: $(grep 'Triad:' stream-$i/stream-*.log | awk '{print $2}') MB/s" >> stream-test-results.log
+    echo "system: $i stream: $(grep 'Triad:' ./stream-$i/stream-*.log | awk '{print $2}') MB/s" >> stream-test-results.log
 done
     
