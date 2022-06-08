@@ -6,8 +6,8 @@ wdir=$1
 SKU=$2
 
 cd $wdir
-mkdir stream-$(hostname)
-cd stream-$(hostname)
+mkdir stream-$(hostname | tr "[:upper:]" "[:lower:]")
+cd stream-$(hostname | tr "[:upper:]" "[:lower:]")
 cp ../stream .
 source ../setenv_AOCC.sh
 
@@ -31,6 +31,6 @@ export OMP_THREAD_LIMIT=256
 #export OMP_NESTED=FALSE
 export OMP_STACKSIZE=256M
 
-./stream >> stream-$(hostname).log
+./stream >> stream-$(hostname | tr "[:upper:]" "[:lower:]").log
 
-#echo "system: $(hostname) stream: $(grep 'Triad:' stream-$(hostname).log | awk '{print $2}') MB/s" >> ../stream-test-results.log
+#echo "system: $(hostname | tr "[:upper:]" "[:lower:]") stream: $(grep 'Triad:' stream-$(hostname | tr "[:upper:]" "[:lower:]").log | awk '{print $2}') MB/s" >> ../stream-test-results.log
