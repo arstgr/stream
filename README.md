@@ -13,7 +13,7 @@ To Run:
 ```
 sh stream_run_script.sh $PWD $SKU
 ```
-where "SKU" is the hardware type (currently AMD's MilanX aka hbrs_v3 and Naple aka hbrs_v2).
+where "SKU" is the hardware type (currently AMD's Genoa aka hbrs_v4, MilanX aka hbrs_v3 and Naple aka hbrs_v2).
 
-A stream triad number of greater than 350 MB/s is generally a pass for these two VM types. More SKU types to be added in future. 
+Stream triad numbers of greater than 750 MB/s and 350 MB/s are generally a pass for hbrs_v4 and hbrs_v3 (and v2) respectively. More SKU types to be added in future. 
 
