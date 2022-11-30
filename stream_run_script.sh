@@ -17,6 +17,9 @@ if [[ $SKU == "hbrs_v2" ]]; then
 elif [[ $SKU == "hbrs_v3" ]]; then
     export OMP_NUM_THREADS=16
     export GOMP_CPU_AFFINITY="0,8,16,24,30,38,46,54,60,68,76,84,90,98,106,114"
+elif [[ $SKU == "hbrs_v4" ]]; then
+    export OMP_NUM_THREADS=176
+    export GOMP_CPU_AFFINITY="0-175"
 fi
 
 sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
