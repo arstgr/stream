@@ -34,6 +34,6 @@ export OMP_THREAD_LIMIT=256
 #export OMP_NESTED=FALSE
 export OMP_STACKSIZE=256M
 
-./stream >> stream-$(hostname | tr "[:upper:]" "[:lower:]").log
+./stream | tee stream-$(hostname | tr "[:upper:]" "[:lower:]").log
 
 #echo "system: $(hostname | tr "[:upper:]" "[:lower:]") stream: $(grep 'Triad:' stream-$(hostname | tr "[:upper:]" "[:lower:]").log | awk '{print $2}') MB/s" >> ../stream-test-results.log
