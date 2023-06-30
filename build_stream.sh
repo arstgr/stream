@@ -1,5 +1,8 @@
 #! /bin/bash
 
+#export ARRY_SIZE=560000000 #full system
+export ARRY_SIZE=280000000 #half system
+
 if test -f "stream.c"; then
     rm stream.c
 fi
@@ -13,6 +16,6 @@ source ./setenv_AOCC.sh
 
 wget https://raw.githubusercontent.com/jeffhammond/STREAM/master/stream.c
 
-clang stream.c -fopenmp -mcmodel=large -DSTREAM_TYPE=double -DSTREAM_ARRAY_SIZE=560000000 -DNTIMES=100 -ffp-contract=fast -fnt-store -O3 -Ofast -ffast-math -ffinite-loops -march=native -zopt -fremap-arrays -mllvm -enable-strided-vectorization -fvector-transform  -o stream
+clang stream.c -fopenmp -mcmodel=large -DSTREAM_TYPE=double -DSTREAM_ARRAY_SIZE=${ARRY_SIZE} -DNTIMES=100 -ffp-contract=fast -fnt-store -O3 -Ofast -ffast-math -ffinite-loops -march=native -zopt -fremap-arrays -mllvm -enable-strided-vectorization -fvector-transform  -o stream
 
 
