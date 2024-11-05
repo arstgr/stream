@@ -20,6 +20,9 @@ elif [[ $SKU == "hbrs_v3" ]]; then
 elif [[ $SKU == "hbrs_v4" ]]; then
     export OMP_NUM_THREADS=176
     export GOMP_CPU_AFFINITY="0-175"
+elif [[ $SKU == "hbrs_v5" ]]; then
+    export OMP_NUM_THREADS=384
+    export GOMP_CPU_AFFINITY="0-383"
 elif [[ $SKU == "ndm_v4" ]]; then
     export OMP_NUM_THREADS=24
     export GOMP_CPU_AFFINITY="0,4,8,12,16,20,24,28,32,36,40,44,48,52,56,60,64,68,72,76,80,84,88,92"
@@ -36,9 +39,9 @@ sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
 
 export OMP_SCHEDULE=static
 export OMP_DYNAMIC=false
-export OMP_THREAD_LIMIT=256
+export OMP_THREAD_LIMIT=512
 #export OMP_NESTED=FALSE
-export OMP_STACKSIZE=256M
+export OMP_STACKSIZE=8192M
 
 ./stream | tee stream-$(hostname | tr "[:upper:]" "[:lower:]").log
 

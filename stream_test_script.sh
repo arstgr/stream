@@ -22,7 +22,10 @@ elif [[ $SKU == "hbrs_v3" ]]; then
 elif [[ $SKU == "hbrs_v4" ]]; then
     export OMP_NUM_THREADS=88
     export GOMP_CPU_AFFINITY="0-87"
-    export MEM_NUMA=2,3
+elif [[ $SKU == "hbrs_v5" ]]; then
+    export OMP_NUM_THREADS=24
+    export GOMP_CPU_AFFINITY="0-23"
+    export MEM_NUMA=0
 fi
 
 sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
@@ -33,9 +36,9 @@ sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
 
 export OMP_SCHEDULE=static
 export OMP_DYNAMIC=false
-export OMP_THREAD_LIMIT=256
+export OMP_THREAD_LIMIT=512
 #export OMP_NESTED=FALSE
-export OMP_STACKSIZE=256M
+export OMP_STACKSIZE=8192M
 
 numactl --physcpubind=${GOMP_CPU_AFFINITY} --membind ${MEM_NUMA} ./stream | tee stream-test-$(hostname | tr "[:upper:]" "[:lower:]").log
 

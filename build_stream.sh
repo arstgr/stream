@@ -1,15 +1,15 @@
 #! /bin/bash
 
-#export ARRY_SIZE=560000000 #full system
-export ARRY_SIZE=280000000 #half system
+export ARRY_SIZE=560000000 #full system
+#export ARRY_SIZE=280000000 #half system
 
 if test -f "stream.c"; then
     rm stream.c
 fi
 
-wget https://download.amd.com/developer/eula/aocc-compiler/aocc-compiler-4.0.0.tar
-tar -xf aocc-compiler-4.0.0.tar
-cd aocc-compiler-4.0.0
+wget https://download.amd.com/developer/eula/aocc/aocc-5-0/aocc-compiler-5.0.0.tar
+tar -xf aocc-compiler-5.0.0.tar
+cd aocc-compiler-5.0.0
 ./install.sh
 cd ../
 source ./setenv_AOCC.sh
