@@ -1,7 +1,8 @@
 #! /bin/bash
 
-export ARRY_SIZE=560000000 #full system
+#export ARRY_SIZE=560000000 #full system
 #export ARRY_SIZE=280000000 #half system
+export ARRY_SIZE=2621440000
 
 if test -f "stream.c"; then
     rm stream.c
