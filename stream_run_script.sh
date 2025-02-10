@@ -32,8 +32,8 @@ elif [[ $SKU == "ndm_v4_asr112" ]]; then
 fi
 
 sync; echo 3 | sudo tee /proc/sys/vm/drop_caches
-#echo madvise | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
-#echo madvise | sudo tee /sys/kernel/mm/transparent_hugepage/defrag
+echo always | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+echo always | sudo tee /sys/kernel/mm/transparent_hugepage/defrag
 #echo 3 | sudo tee /proc/sys/vm/drop_caches
 #echo 1 | sudo tee /proc/sys/kernel/numa_balancing
 
@@ -46,3 +46,6 @@ export OMP_STACKSIZE=8192M
 ./stream | tee stream-$(hostname | tr "[:upper:]" "[:lower:]").log
 
 #echo "system: $(hostname | tr "[:upper:]" "[:lower:]") stream: $(grep 'Triad:' stream-$(hostname | tr "[:upper:]" "[:lower:]").log | awk '{print $2}') MB/s" >> ../stream-test-results.log
+
+echo madvise | sudo tee /sys/kernel/mm/transparent_hugepage/enabled
+echo madvise | sudo tee /sys/kernel/mm/transparent_hugepage/defrag
